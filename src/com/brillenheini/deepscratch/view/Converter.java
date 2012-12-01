@@ -7,15 +7,15 @@ import android.content.Context;
 import com.brillenheini.deepscratch.log.LL;
 
 public final class Converter {
-	private static float density;
+	private static float sDensity;
 
 	private Converter() {
 	}
 
 	public static void initialize(Context context) {
-		density = context.getResources().getDisplayMetrics().density;
+		sDensity = context.getResources().getDisplayMetrics().density;
 		if (LL.isDebugEnabled())
-			LL.debug("display density=" + density);
+			LL.debug("display density=" + sDensity);
 	}
 
 	/**
@@ -26,6 +26,6 @@ public final class Converter {
 	 *      >Converting from dips to pixels</a>
 	 */
 	public static int dipsToPix(float dips) {
-		return (int) (dips * density + 0.5f);
+		return (int) (dips * sDensity + 0.5f);
 	}
 }

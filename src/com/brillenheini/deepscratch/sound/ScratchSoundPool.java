@@ -20,21 +20,21 @@ public class ScratchSoundPool {
 	private SoundPool mPool;
 
 	// samples
-	private int sampleID = -1;
-	private int forwardID = -1;
-	private int backwardID = -1;
+	private int mSampleID = -1;
+	private int mForwardID = -1;
+	private int mBackwardID = -1;
 
 	public ScratchSoundPool() {
 		mPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
 	}
 
 	public void loadSample(Context context, Sample sample) {
-		unloadSound(sampleID);
-		unloadSound(forwardID);
-		unloadSound(backwardID);
-		sampleID = mPool.load(context, sample.getSampleID(), 1);
-		forwardID = mPool.load(context, sample.getForwardID(), 1);
-		backwardID = mPool.load(context, sample.getBackwardID(), 1);
+		unloadSound(mSampleID);
+		unloadSound(mForwardID);
+		unloadSound(mBackwardID);
+		mSampleID = mPool.load(context, sample.getSampleID(), 1);
+		mForwardID = mPool.load(context, sample.getForwardID(), 1);
+		mBackwardID = mPool.load(context, sample.getBackwardID(), 1);
 	}
 
 	private void unloadSound(int soundID) {
@@ -43,15 +43,15 @@ public class ScratchSoundPool {
 	}
 
 	public void playSample() {
-		playSound(sampleID, PITCH_MID);
+		playSound(mSampleID, PITCH_MID);
 	}
 
 	public void playForward(float velocity) {
-		playSound(forwardID, calculatePitch(velocity));
+		playSound(mForwardID, calculatePitch(velocity));
 	}
 
 	public void playBackward(float velocity) {
-		playSound(backwardID, calculatePitch(velocity));
+		playSound(mBackwardID, calculatePitch(velocity));
 	}
 
 	private void playSound(int soundID, float pitch) {

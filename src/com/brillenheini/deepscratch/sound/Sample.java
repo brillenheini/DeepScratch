@@ -7,10 +7,10 @@ import java.util.List;
  * A scratch sample. Used to load sounds and build the selection menu.
  */
 public final class Sample {
-	private String name;
-	private int sampleID;
-	private int forwardID;
-	private int backwardID;
+	private String mName;
+	private int mSampleID;
+	private int mForwardID;
+	private int mBackwardID;
 
 	/**
 	 * Constructor.
@@ -25,26 +25,26 @@ public final class Sample {
 	 *            resource ID
 	 */
 	public Sample(String name, int sampleID, int forwardID, int backwardID) {
-		this.name = name;
-		this.sampleID = sampleID;
-		this.forwardID = forwardID;
-		this.backwardID = backwardID;
+		mName = name;
+		mSampleID = sampleID;
+		mForwardID = forwardID;
+		mBackwardID = backwardID;
 	}
 
 	public String getName() {
-		return name;
+		return mName;
 	}
 
 	public int getSampleID() {
-		return sampleID;
+		return mSampleID;
 	}
 
 	public int getForwardID() {
-		return forwardID;
+		return mForwardID;
 	}
 
 	public int getBackwardID() {
-		return backwardID;
+		return mBackwardID;
 	}
 
 	/**
@@ -66,6 +66,6 @@ public final class Sample {
 
 	@Override
 	public String toString() {
-		return name;
+		return mName;
 	}
 }

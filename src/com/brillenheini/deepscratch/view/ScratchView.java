@@ -20,15 +20,15 @@ public class ScratchView extends ImageView {
 
 	private static final int MIN_SCRATCH_DISTANCE = Converter.dipsToPix(50);
 	private static final int MIN_SAMPLE_DISTANCE = Converter.dipsToPix(80);
-	private float lastX;
-	private float lastY;
-	private float lastDX;
-	private float lastDY;
-	private float startX;
-	private float startY;
+	private float mLastX;
+	private float mLastY;
+	private float mLastDX;
+	private float mLastDY;
+	private float mStartX;
+	private float mStartY;
 
-	private long lastTime;
-	private long startTime;
+	private long mLastTime;
+	private long mStartTime;
 
 	private boolean mPlayed;
 
@@ -67,14 +67,14 @@ public class ScratchView extends ImageView {
 		switch (event.getAction()) {
 
 		case MotionEvent.ACTION_DOWN: {
-			lastX = event.getX();
-			lastY = event.getY();
-			lastDX = 0;
-			lastDY = 0;
-			startX = lastX;
-			startY = lastY;
-			lastTime = event.getEventTime();
-			startTime = lastTime;
+			mLastX = event.getX();
+			mLastY = event.getY();
+			mLastDX = 0;
+			mLastDY = 0;
+			mStartX = mLastX;
+			mStartY = mLastY;
+			mLastTime = event.getEventTime();
+			mStartTime = mLastTime;
 			mPlayed = false;
 			mSpinner.stopRotation();
 			break;
@@ -83,24 +83,24 @@ public class ScratchView extends ImageView {
 		case MotionEvent.ACTION_MOVE: {
 			final float x = event.getX();
 			final float y = event.getY();
-			final float dx = x - lastX;
-			final float dy = y - lastY;
+			final float dx = x - mLastX;
+			final float dy = y - mLastY;
 
-			if (dy > 0 && lastDY < 0 || dy < 0 && lastDY > 0) {
-				startY = lastY;
-				startTime = lastTime;
+			if (dy > 0 && mLastDY < 0 || dy < 0 && mLastDY > 0) {
+				mStartY = mLastY;
+				mStartTime = mLastTime;
 				mPlayed = false;
 			}
-			if (dx > 0 && lastDX < 0 || dx < 0 && lastDX > 0) {
-				startX = lastX;
+			if (dx > 0 && mLastDX < 0 || dx < 0 && mLastDX > 0) {
+				mStartX = mLastX;
 				mPlayed = false;
 			}
 
 			if (!mPlayed) {
-				final float scratchDistance = Math.abs(y - startY);
-				final float lastScratchDistance = Math.abs(lastY - startY);
-				final float sampleDistance = Math.abs(x - startX);
-				final float lastSampleDistance = Math.abs(lastX - startX);
+				final float scratchDistance = Math.abs(y - mStartY);
+				final float lastScratchDistance = Math.abs(mLastY - mStartY);
+				final float sampleDistance = Math.abs(x - mStartX);
+				final float lastSampleDistance = Math.abs(mLastX - mStartX);
 
 				if (scratchDistance > MIN_SCRATCH_DISTANCE
 						&& lastScratchDistance <= MIN_SCRATCH_DISTANCE) {
@@ -116,15 +116,15 @@ public class ScratchView extends ImageView {
 				}
 			}
 
-			mSpinner.spin(dy, lastX);
+			mSpinner.spin(dy, mLastX);
 
-			lastX = x;
-			lastY = y;
+			mLastX = x;
+			mLastY = y;
 			if (dx != 0)
-				lastDX = dx;
+				mLastDX = dx;
 			if (dy != 0)
-				lastDY = dy;
-			lastTime = event.getEventTime();
+				mLastDY = dy;
+			mLastTime = event.getEventTime();
 			break;
 		}
 
@@ -142,7 +142,7 @@ public class ScratchView extends ImageView {
 	 * is played.
 	 */
 	private float velocity(MotionEvent event, float scratchDistance) {
-		float dt = (float) (event.getEventTime() - startTime) / 1000;
+		float dt = (float) (event.getEventTime() - mStartTime) / 1000;
 		return scratchDistance / dt;
 	}
 
