@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <com.brillenheini.deepscratch.lib.view.ScratchView
+        android:id="@+id/scratch"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        offsetX="130"
+        android:scaleType="matrix"
+        android:src="@drawable/record" />
+
+</merge>
