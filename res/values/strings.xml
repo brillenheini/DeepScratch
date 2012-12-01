@@ -8,16 +8,13 @@
     <string name="menu_play">Play</string>
     <string name="menu_sample">Pick sample</string>
     <string name="menu_help">Help</string>
-    <string name="menu_buy">Buy</string>
 
     <!-- Help dialog -->
     <string name="instructions">Move your finger back and forth to scratch and to the side to play the original sample.</string>
-    <string name="buy">If you like this application, you could buy the full version with more scratch samples on Google Play.</string>
     <string name="thanks">Thanks to <a href="http://zweintopf.net/">Gerhard</a> for creating the record image, Udo for math, Günther for legal advice, Claire for French, Andi for the mic, Franziska for the camera and Johannes, Oki and Chris for testing.</string>
     <string name="attributions">This software uses icons from <a href="http://www.androidicons.com/">androidicons.com</a> according to the terms of the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</string>
 
     <!-- Errors -->
     <string name="error_noactivity">No application was found to select music.</string>
-    <string name="error_nomarket">The Google Play application was not found.</string>
 
 </resources>

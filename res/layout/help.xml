@@ -27,15 +27,6 @@
             android:src="@drawable/help" />
 
         <TextView
-            android:id="@+id/help_buy"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:text="@string/buy"
-            android:textSize="14sp"
-            android:visibility="gone" />
-
-        <TextView
             android:id="@+id/help_thanks"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

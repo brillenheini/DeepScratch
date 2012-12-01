@@ -214,14 +214,6 @@ public class DeepScratch extends Activity {
 		case R.id.menu_help:
 			showDialog(DIALOG_HELP);
 			return true;
-		case R.id.menu_buy:
-			Intent buyIntent = new Intent(Intent.ACTION_VIEW, getMarketUri());
-			try {
-				startActivity(buyIntent);
-			} catch (ActivityNotFoundException anfe) {
-				toastError(R.string.error_nomarket, anfe);
-			}
-			return true;
 		case ITEM_ID_SAMPLE:
 			if (!item.isChecked()) {
 				item.setChecked(true);
@@ -253,11 +245,6 @@ public class DeepScratch extends Activity {
 		CharSequence msg = getResources().getText(id);
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 		LL.error(msg.toString(), tr);
-	}
-
-	private Uri getMarketUri() {
-		return Uri
-				.parse("market://details?id=com.brillenheini.deepscratch.paid");
 	}
 
 	private void preparePlayer() {
