@@ -193,8 +193,8 @@ public class DeepScratch extends Activity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
-		int itemId = item.getItemId();
-		if (itemId == R.id.menu_music) {
+		switch (item.getItemId()) {
+		case R.id.menu_music:
 			Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
 			intent.setType("audio/*");
 			try {
@@ -203,18 +203,18 @@ public class DeepScratch extends Activity {
 				toastError(R.string.error_noactivity, anfe);
 			}
 			return true;
-		} else if (itemId == R.id.menu_pause) {
+		case R.id.menu_pause:
 			mPlayer.pause();
 			mPaused = true;
 			return true;
-		} else if (itemId == R.id.menu_play) {
+		case R.id.menu_play:
 			mPlayer.start();
 			mPaused = false;
 			return true;
-		} else if (itemId == R.id.menu_help) {
+		case R.id.menu_help:
 			showDialog(DIALOG_HELP);
 			return true;
-		} else if (itemId == R.id.menu_buy) {
+		case R.id.menu_buy:
 			Intent buyIntent = new Intent(Intent.ACTION_VIEW, getMarketUri());
 			try {
 				startActivity(buyIntent);
@@ -222,7 +222,7 @@ public class DeepScratch extends Activity {
 				toastError(R.string.error_nomarket, anfe);
 			}
 			return true;
-		} else if (itemId == ITEM_ID_SAMPLE) {
+		case ITEM_ID_SAMPLE:
 			if (!item.isChecked()) {
 				item.setChecked(true);
 				mSelectedSample = Sample.findSample(mSamples, item.getTitle()
@@ -230,7 +230,7 @@ public class DeepScratch extends Activity {
 				mSounds.loadSample(this, mSamples.get(mSelectedSample));
 			}
 			return true;
-		} else {
+		default:
 			return super.onOptionsItemSelected(item);
 		}
 	}
