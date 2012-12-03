@@ -1,0 +1,20 @@
+<resources>
+
+    <string name="app_name">Deep Scratch</string>
+
+    <!-- Options menu -->
+    <string name="menu_music">Sélectionner musique</string>
+    <string name="menu_pause">Pause</string>
+    <string name="menu_play">Play</string>
+    <string name="menu_sample">Sélectionner sample</string>
+    <string name="menu_help">Aide</string>
+
+    <!-- Help dialog -->
+    <string name="instructions">Bougez votre doigt de haut en bas pour scratcher et sur le côté pour jouer le sample original.</string>
+    <string name="thanks">Merci à <a href="http://zweintopf.net/">Gerhard</a> d\'avoir créé le design, Udo pour les maths, Günther pour les conseils juridiques, Claire pour le francais, Andi pour le micro, Franziska pour la caméra et Johannes, Oki et Chris d\'avoir testé le programme.</string>
+    <string name="attributions">This software uses icons from <a href="http://www.androidicons.com/">androidicons.com</a> according to the terms of the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</string>
+
+    <!-- Errors -->
+    <string name="error_noactivity">Aucune application n\'a été trouvé pour sélectionner la musique.</string>
+
+</resources>
