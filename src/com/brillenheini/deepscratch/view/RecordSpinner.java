@@ -1,6 +1,6 @@
 /*
  * Deep Scratch for Android
- * Copyright (C) 2010, 2011 Stefan Schweizer
+ * Copyright (C) 2010, 2011, 2012 Stefan Schweizer
  *
  * This file is part of Deep Scratch.
  *
@@ -23,6 +23,7 @@ import static java.lang.Math.atan;
 import static java.lang.Math.toDegrees;
 import android.graphics.Matrix;
 import android.os.Handler;
+import android.os.Handler.Callback;
 import android.os.Message;
 import android.widget.ImageView;
 
@@ -31,7 +32,7 @@ import com.brillenheini.deepscratch.log.LL;
 /**
  * Spin the image of the record with an image matrix.
  */
-class RecordSpinner {
+class RecordSpinner implements Callback {
 	public static final int OFFSET_DEFAULT = -1;
 
 	private static final int ROTATION_DELAY = 100;
@@ -41,6 +42,7 @@ class RecordSpinner {
 
 	private ImageView mImage;
 	private Matrix mMatrix;
+	private Handler mRotator = new Handler(this);
 
 	private int mPivotX;
 	private int mPivotY;
@@ -126,7 +128,7 @@ class RecordSpinner {
 	 * Stop rotating the record.
 	 */
 	public void stopRotation() {
-		rotator.removeMessages(WHAT_ROTATE);
+		mRotator.removeMessages(WHAT_ROTATE);
 	}
 
 	private void rotateOnce() {
@@ -136,16 +138,15 @@ class RecordSpinner {
 		if (mLastAngle < -1)
 			degrees = (int) (mLastAngle * 0.4f - 0.5f);
 
-		rotator.removeMessages(WHAT_ROTATE);
-		rotator.sendMessageDelayed(
-				rotator.obtainMessage(WHAT_ROTATE, degrees, 0), ROTATION_DELAY);
+		mRotator.removeMessages(WHAT_ROTATE);
+		mRotator.sendMessageDelayed(
+				mRotator.obtainMessage(WHAT_ROTATE, degrees, 0), ROTATION_DELAY);
 	}
 
-	private Handler rotator = new Handler() {
-		@Override
-		public void handleMessage(Message msg) {
-			spin(msg.arg1);
-			rotateOnce();
-		}
-	};
+	@Override
+	public boolean handleMessage(Message msg) {
+		spin(msg.arg1);
+		rotateOnce();
+		return true;
+	}
 }
