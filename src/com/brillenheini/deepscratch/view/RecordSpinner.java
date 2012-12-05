@@ -35,8 +35,8 @@ import com.brillenheini.deepscratch.log.LL;
 class RecordSpinner implements Callback {
 	public static final int OFFSET_DEFAULT = -1;
 
-	private static final int ROTATION_DELAY = 100;
-	private static final int ROTATION_ANGLE = 15;
+	private static final int ROTATION_DELAY = 60;
+	private static final int ROTATION_ANGLE = 10;
 
 	private static final int WHAT_ROTATE = 0;
 
