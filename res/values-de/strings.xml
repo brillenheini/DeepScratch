@@ -12,6 +12,7 @@
     <!-- Help dialog -->
     <string name="instructions">Bewegen Sie Ihren Finger auf und ab um zu scratchen und auf die Seite um das originale Sample zu spielen.</string>
     <string name="thanks">Danke an <a href="http://zweintopf.net/">Gerhard</a> für die Platten-Grafik, Udo für Mathematik, Günther für juristischen Rat, Claire für Französich, Andi für das Mikrofon, Franziska für die Kamera und Johannes, Oki und Chris fürs Testen.</string>
+    <string name="license">Deep Scratch is published under the GPLv3 license. The source code is available on <a href="http://github.com/brillenheini/DeepScratch">GitHub</a>.</string>
     <string name="attributions">This software uses icons from <a href="http://www.androidicons.com/">androidicons.com</a> according to the terms of the <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 License</a>.</string>
 
     <!-- Errors -->

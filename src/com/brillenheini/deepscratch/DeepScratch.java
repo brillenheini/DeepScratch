@@ -169,6 +169,8 @@ public class DeepScratch extends Activity {
 			// Make links clickable
 			TextView text = (TextView) dialog.findViewById(R.id.help_thanks);
 			text.setMovementMethod(LinkMovementMethod.getInstance());
+			text = (TextView) dialog.findViewById(R.id.help_license);
+			text.setMovementMethod(LinkMovementMethod.getInstance());
 			text = (TextView) dialog.findViewById(R.id.help_attributions);
 			text.setMovementMethod(LinkMovementMethod.getInstance());
 			break;
