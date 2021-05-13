@@ -1,8 +1,8 @@
 Deep Scratch for Android
 ========================
 
-Deep Scratch is an Android app that allows simple DJ-like scratching of audio
-samples. It is available on [Google Play][1].
+Deep Scratch was an Android app that allowed simple DJ-like scratching of audio
+samples.
 
 
 History
